@@ -14,7 +14,6 @@ target/
 # =========================
 runtime/
 assets/
-/yii/vendor
 logs/
 
 # Mac OS Specific
@@ -28,6 +27,8 @@ Thumbs.db
 # Composer Specific
 # =========================
 composer.phar
+composer.lock
+vendor/
 
 
 # Xcode
