@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 8/1/13
- * Time: 10:46 PM
- */
+namespace icatalyst;
 
 class RunTest extends PHPUnit_Framework_TestCase
 {

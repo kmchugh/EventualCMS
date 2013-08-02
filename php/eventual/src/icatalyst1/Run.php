@@ -1,5 +1,5 @@
 <?php
-namespace ICatalyst;
+namespace icatalyst;
 
 class Run
 {

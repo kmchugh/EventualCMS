@@ -1,5 +1,5 @@
 {
-    "name":"kmchugh/eventual",
+    "name":"icatalyst/eventual",
     "description":"Eventual CMS PHP Framework",
     "type":"library",
     "require":
