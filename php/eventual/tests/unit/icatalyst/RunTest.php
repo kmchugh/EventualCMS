@@ -1,7 +1,7 @@
 <?php
 namespace icatalyst;
 
-class RunTest extends PHPUnit_Framework_TestCase
+class RunTest extends \PHPUnit_Framework_TestCase
 {
     public function testEmpty()
     {

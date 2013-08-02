@@ -16,7 +16,7 @@ class Utilities
      *
      * This load function is PSR-0 compliant
      *
-     * @param $tcClass the class name to load, if fully qualified this will respect the namespace
+     * @param $tcClass string class name to load, if fully qualified this will respect the namespace
      * @return null|string returns the name of the class file used, or NULL if no class was loaded
      */
     static public function loadClass($tcClass)
@@ -27,7 +27,7 @@ class Utilities
         $lcNameSpace = count($laClass) == 1 ? NULL : implode(DIRECTORY_SEPARATOR, array_slice($laClass, 0, count($laClass)-1));
 
         // Include the include_path for autoloading
-        $lcIncludePath = (!is_null($lcNameSpace) ? EVENTUAL_ROOT.$lcNameSpace.PATH_SEPARATOR.$lcNameSpace.PATH_SEPARATOR : '').ini_get('include_path');
+        $lcIncludePath = (!is_null($lcNameSpace) ? str_replace(DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, EVENTUAL_ROOT.$lcNameSpace).PATH_SEPARATOR.$lcNameSpace.PATH_SEPARATOR : '').ini_get('include_path');
         foreach (explode(PATH_SEPARATOR, $lcIncludePath) as $lcPath)
         {
             $lcClassFile = $lcPath.DIRECTORY_SEPARATOR.$lcClassName.'.php';

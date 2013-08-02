@@ -5,7 +5,7 @@
     **/
 
     // Define the app constants
-    defined('EVENTUAL_ROOT') || define('EVENTUAL_ROOT', str_replace('\\', DIRECTORY_SEPARATOR, realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR));
+    defined('EVENTUAL_ROOT') || define('EVENTUAL_ROOT', str_replace('\\', DIRECTORY_SEPARATOR, realpath(dirname(dirname(__FILE__))).DIRECTORY_SEPARATOR));
 
     // Allow access to STDIN from fcgi
     defined('STDIN') || define('STDIN', fopen('php://stdin', 'r'));

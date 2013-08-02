@@ -1,0 +1,3 @@
+#!/bin/bash
+
+php eventual/vendor/phpunit/phpunit/phpunit.php
