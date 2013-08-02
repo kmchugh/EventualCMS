@@ -11,9 +11,5 @@
     	"phpunit/phpunit": "3.7.*",
     	"phpunit/dbunit": ">=1.2",
     	"phpunit/php-invoker": "*"
-    },
-    "autoload":
-    {
-    	"psr-0":{"icatalyst\\":"src/"}
     }
 }

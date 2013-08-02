@@ -1,0 +1,39 @@
+#!/usr/bin/env php
+<?php
+    /**
+    * exec is the CLI for the eventual Framework
+    **/
+
+    // Define the app constants
+    defined('EVENTUAL_ROOT') || define('EVENTUAL_ROOT', str_replace('\\', DIRECTORY_SEPARATOR, realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR));
+
+    // Allow access to STDIN from fcgi
+    defined('STDIN') || define('STDIN', fopen('php://stdin', 'r'));
+
+    // Allow access to STDOUT from fcgi
+    // defined('STDOUT') || define('STDOUT', fopen('php://stdout', 'w'));
+
+    spl_autoload_register(function ($tcClass)
+    {
+        // Extract the namespace and class name
+        $laClass = explode('\\', $tcClass);
+        $lcClassName = $laClass[count($laClass)-1];
+        $lcNameSpace = count($laClass) == 1 ? NULL : implode(DIRECTORY_SEPARATOR, array_slice($laClass, 0, count($laClass)-1));
+
+        // Include the include_path for autoloading
+        $lcIncludePath = (!is_null($lcNameSpace) ? EVENTUAL_ROOT.$lcNameSpace.PATH_SEPARATOR : '').ini_get('include_path');
+        foreach (explode(PATH_SEPARATOR, $lcIncludePath) as $lcPath)
+        {
+            $lcClassFile = $lcPath.DIRECTORY_SEPARATOR.$lcClassName.'.php';
+            if (file_exists($lcClassFile) && is_readable($lcClassFile))
+            {
+                include_once $lcClassFile;
+                return;
+            }
+        }
+    });
+
+    //require_once('eventual/console/Bootstrap.php');
+    // Create the console bootstrap
+    $loBootstrap = new \icatalyst\eventual\console\Bootstrap();
+?>
