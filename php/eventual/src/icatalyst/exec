@@ -19,4 +19,5 @@
 
     // Create the console bootstrap
     $loBootstrap = new \icatalyst\eventual\console\Bootstrap();
+    $loBootstrap->run();
 ?>

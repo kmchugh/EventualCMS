@@ -11,7 +11,11 @@ class Bootstrap
 
     function __construct()
     {
-        echo "Super Initialised";
+    }
+
+    public function run()
+    {
+        return 0;
     }
 
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace icatalyst\eventual\console;
+use icatalyst\eventual\Utilities;
 
 /**
  * Class Bootstrap is a bootstrap specifically for console applications, this includes command line execution
@@ -8,7 +9,11 @@ namespace icatalyst\eventual\console;
  */
 class Bootstrap extends \icatalyst\eventual\Bootstrap
 {
-
+    public function run()
+    {
+        Utilities::printVar($_SERVER['argv']);
+        return parent::run();
+    }
 }
 
 ?>

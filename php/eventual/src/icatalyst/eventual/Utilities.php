@@ -39,4 +39,35 @@ class Utilities
         }
         return NULL;
     }
+
+    /**
+     * Gets a string representation of the variable specified, and outputs it in the appropriate
+     * format if $tlOutput is true
+     * @param $toVariable mixed the variable to parse
+     * @param bool $tlOutput true to output the variable, false to return the value
+     * @return string the string representation of the variable
+     */
+    public static function printVar($toVariable, $tlOutput = TRUE)
+    {
+        $llConsole = Utilities::isConsole();
+        $llCancelWrap = !$tlOutput || $llConsole;
+        $lcReturn = (!$llCancelWrap ? ($llConsole ? '' : '<pre>') : '').
+            ((is_null($toVariable) || !isset($toVariable)) ? 'NULL' : print_r($toVariable, 1)).
+            (!$llCancelWrap ? ($llConsole ? PHP_EOL : '</pre>') : '');
+
+        if ($tlOutput)
+        {
+            echo $lcReturn;
+        }
+        return $lcReturn;
+    }
+
+    /**
+     * Checks if we are running in console mode or web mode
+     * @return bool true if in console mode, false otherwise
+     */
+    public static function isConsole()
+    {
+        return TRUE;
+    }
 }
