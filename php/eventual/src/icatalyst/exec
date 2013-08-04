@@ -17,7 +17,9 @@
     require_once(EVENTUAL_ROOT.'icatalyst'.DIRECTORY_SEPARATOR.'eventual'.DIRECTORY_SEPARATOR.'Utilities.php');
     spl_autoload_register('\icatalyst\eventual\Utilities::loadClass');
 
-    // Create the console bootstrap
-    $loBootstrap = new \icatalyst\eventual\console\Bootstrap();
+    // Create the console bootstrap, if we are running from phpunit, use the test context
+    $loBootstrap = new \icatalyst\eventual\console\Bootstrap(strpos(strtolower($_SERVER['PHP_SELF']), 'phpunit.php') >= 0 ?
+         new \icatalyst\eventual\console\TestContext() :
+         null);
     $loBootstrap->run();
 ?>

@@ -11,12 +11,17 @@ use icatalyst\eventual\Utilities;
 class Bootstrap extends \icatalyst\eventual\applications\Bootstrap
 {
     /**
-     * Creates a new instance of the Console Bootstrap
+     * Creates a new Bootstrap with the context specified, or the
+     * default context if none is supplied.
+     * The expectation is that a context only needs to be supplied if
+     * somthing odd is happening such as running in a test environment
+     *
+     * @param Context $toContext the context to use, usually not supplied
      */
-    function __construct()
+    function __construct(Context $toContext = NULL)
     {
         // Set up the correct context
-        parent::__construct(new Context());
+        parent::__construct(is_null($toContext) ? new Context() : $toContext);
     }
 
 

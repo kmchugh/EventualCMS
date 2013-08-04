@@ -14,11 +14,11 @@ abstract class Bootstrap
 
     /**
      * Creates a new instance of the bootstrap
-     * @param Context $context the context that we are executing in
+     * @param Context $toContext the context that we are executing in
      */
-    function __construct(Context $context)
+    function __construct(Context $toContext)
     {
-        $this->context = $context;
+        $this->context = $toContext;
 
         // Gather the configuration and create the application
         App::create($this->getConfig());

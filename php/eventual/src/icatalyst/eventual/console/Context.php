@@ -9,5 +9,10 @@ namespace icatalyst\eventual\console;
  */
 class Context extends \icatalyst\eventual\applications\Context
 {
-
+    /**
+     * Creates a new Console Context
+     */
+    function __construct()
+    {
+    }
 }
