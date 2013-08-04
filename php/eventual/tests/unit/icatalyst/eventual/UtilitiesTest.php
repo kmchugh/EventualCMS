@@ -30,7 +30,20 @@ class UtilitiesTest extends \PHPUnit_Framework_TestCase
         $lcResult = str_replace('\n', PHP_EOL, 'Array\n(\n    [test] => value\n    [test1] => value1\n)\n');
         $this->assertEquals($lcResult, Utilities::printVar($laArray, FALSE));
 
-        // TODO: Also need to test the STDOUT
+        ob_start();
+        Utilities::printVar(NULL);
+        $lcOutput = ob_get_contents();
+        ob_end_clean();
+        $this->assertEquals('NULL', $lcOutput);
+
+        ob_start();
+        $lcResult = str_replace('\n', PHP_EOL, 'Array\n(\n    [test] => value\n    [test1] => value1\n)\n');
+        Utilities::printVar($laArray);
+        $lcOutput = ob_get_contents();
+        ob_end_clean();
+        $this->assertEquals($lcResult, $lcOutput);
+
+        // TODO: Also need to test output to the web
     }
 
     public function testIsConsole()

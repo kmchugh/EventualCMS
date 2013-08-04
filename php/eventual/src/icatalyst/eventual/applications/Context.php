@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: kmchugh
- * Date: 3/8/13
- * Time: 10:49 AM
+ * Date: 4/8/13
+ * Time: 4:26 PM
  */
 
 namespace icatalyst\eventual\applications;
@@ -11,7 +11,7 @@ namespace icatalyst\eventual\applications;
 
 use icatalyst\eventual\Object;
 
-class Request extends Object
+class Context extends Object
 {
 
 }

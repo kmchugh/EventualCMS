@@ -9,7 +9,9 @@
 namespace icatalyst\eventual\applications;
 
 
-class Response
+use icatalyst\eventual\Object;
+
+class Response extends Object
 {
 
 }

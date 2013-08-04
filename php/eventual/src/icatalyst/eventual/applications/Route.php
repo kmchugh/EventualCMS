@@ -9,7 +9,9 @@
 namespace icatalyst\eventual\applications;
 
 
-class Route
+use icatalyst\eventual\Object;
+
+class Route extends Object
 {
 
 }
