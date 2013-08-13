@@ -8,7 +8,11 @@ target/
 *.iml
 *.iws
 .project
-.settings
+.settings/
+
+# Karyon Framework files
+# =========================
+sessions/
 
 # Yii Framework files
 # =========================
@@ -34,6 +38,7 @@ vendor/
 # Xcode
 # =========================
 build/
+out/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
