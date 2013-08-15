@@ -9,6 +9,6 @@
 curl -sS https://getcomposer.org/installer | php -d detect_unicode=Off -- --install-dir=php/eventual
 
 # install the required modules
-cd ./eventual/
+cd ./php/eventual/
 php composer.phar install
 cd ..
